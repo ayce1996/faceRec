@@ -31,7 +31,7 @@ def faceRec(window_name, camera_idx = 0):
     classfier = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
 
     #边框颜色
-    color = (255, 0, 0)
+    color = (0,0,255)
 
 
     while(1):
@@ -41,7 +41,7 @@ def faceRec(window_name, camera_idx = 0):
         grey = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
         # 人脸检测
-        faceRects = classfier.detectMultiScale(grey, scaleFactor=1.2, minNeighbors=3, minSize=(32, 32))
+        faceRects = classfier.detectMultiScale(grey, scaleFactor=1.2, minNeighbors=3, minSize=(5, 5))
         if len(faceRects) > 0:
             for faceRect in faceRects:
                 x, y, w, h = faceRect
